@@ -225,6 +225,14 @@ app.use((req, res) => {
   res.status(404).json({ status: false, message: "Endpoint tidak ditemukan." })
 })
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`IGNOTE API aktif di port ${PORT}`)
-})
+if (require.main === module) {
+
+  app.listen(PORT, "0.0.0.0", () => {
+
+    console.log(`IGNOTE API aktif di port ${PORT}`)
+
+  })
+
+}
+
+module.exports = app
